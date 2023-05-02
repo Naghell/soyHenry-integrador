@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Convergence&family=Montserrat:wght@500;700&family=Signika&display=swap');
+
 * {
    box-sizing: border-box;
    padding: 0;
    margin: 0;
+   font-family: Montserrat, Signika, Convergence, sans-serif;
 }
 
 .App {
