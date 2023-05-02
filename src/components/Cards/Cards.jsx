@@ -1,6 +1,6 @@
 import style from './Cards.module.css';
 import Card from '../Card/Card';
-import characters from '../../data.js';
+import characters from '../../data/data.js';
 
 export default function Cards(props) {
    return (
