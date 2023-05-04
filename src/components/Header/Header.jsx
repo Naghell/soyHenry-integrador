@@ -1,6 +1,8 @@
+import style from './Header.module.css';
+
 function Header() {
   return (
-    <div>
+    <div className={style.header}>
       <img src="./logo.png" alt="logo" />
     </div>
   )
