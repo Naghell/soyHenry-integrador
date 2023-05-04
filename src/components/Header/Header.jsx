@@ -1,9 +1,10 @@
 import React from 'react'
-import style from './Header.module.css'
 
 function Header() {
   return (
-    <div>Header</div>
+    <div>
+      <img src="./logo.png" alt="logo" />
+    </div>
   )
 }
 
