@@ -2,7 +2,7 @@ import SearchBar from '../SearchBar/SearchBar'
 import { Link } from 'react-router-dom'
 import style from './Nav.module.css'
 
-function Nav({onSearch}) {
+function Nav({onSearch, logout}) {
   return (
     <nav className={style.nav}>
       <section>
@@ -11,6 +11,9 @@ function Nav({onSearch}) {
         </button>
         <button>
           <Link to='/about'>About</Link>
+        </button>
+        <button onClick={logout}>
+          <Link to='/about'>Logout</Link>
         </button>
       </section>
       <section>
