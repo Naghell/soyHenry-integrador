@@ -10,7 +10,7 @@ import Nav from "./components/Nav/Nav.jsx";
 import NotFound from "./components/NotFound/NotFound.jsx";
 
 const EMAIL = "admin@admin.com";
-const PASSWORD = "admin";
+const PASSWORD = "administrador";
 
 function App() {
    const location = useLocation();

@@ -28,13 +28,17 @@ const Form = ({login}) => {
 
     return(
         <form onSubmit={handleSubmit}>
-            <label htmlFor='email'>Email:</label>
-            <input type='email' name='email' placeholder='Ingresa tu mail' value={userData.email} onChange={handleChange}></input>
-            { errors.email && <p>{errors.email}</p> }
-
-            <label htmlFor='password'>Contraseña:</label>
-            <input type='password' name='password' placeholder='Ingresa tu contraseña' value={userData.password} onChange={handleChange}></input>'
-            { errors.password && <p>{errors.password}</p> }
+            <h1>Iniciar sesión</h1>
+            <div>
+                <label htmlFor='email'>Email:</label>
+                <input type='email' name='email' placeholder='Ingresa tu mail' value={userData.email} onChange={handleChange}></input>
+                { errors.email && <p>{errors.email}</p> }
+            </div>
+            <div>
+                <label htmlFor='password'>Contraseña:</label>
+                <input type='password' name='password' placeholder='Ingresa tu contraseña' value={userData.password} onChange={handleChange}></input>
+                { errors.password && <p>{errors.password}</p> }
+            </div>
             <button type='submit'>Enviar</button>
         </form>
     )

@@ -16,6 +16,7 @@ function Card({id, name, status, species, gender, origin, image, onClose}) {
          </div>
          <img src={image} alt='' />
       </div>
+      
    );
 }
 
