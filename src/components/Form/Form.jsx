@@ -2,7 +2,7 @@ import style from './Form.module.css';
 import validate from './validation.js';
 import { useState } from 'react';
 
-const Form = ({login}) => {
+const Form = ({ login }) => {
     const [userData, setData] = useState({
         email: '',
         password: ''
@@ -26,21 +26,26 @@ const Form = ({login}) => {
         login(userData);
     }
 
-    return(
-        <form onSubmit={handleSubmit}>
-            <h1>Iniciar sesión</h1>
-            <div>
-                <label htmlFor='email'>Email:</label>
-                <input type='email' name='email' placeholder='Ingresa tu mail' value={userData.email} onChange={handleChange}></input>
-                { errors.email && <p>{errors.email}</p> }
-            </div>
-            <div>
-                <label htmlFor='password'>Contraseña:</label>
-                <input type='password' name='password' placeholder='Ingresa tu contraseña' value={userData.password} onChange={handleChange}></input>
-                { errors.password && <p>{errors.password}</p> }
-            </div>
-            <button type='submit'>Enviar</button>
-        </form>
+    return (
+        <div className={style.center}>
+            <img src='/login-back.png' alt='Rick y Morty API'></img>
+            <form onSubmit={handleSubmit}>
+                <h1>Iniciar sesión</h1>
+                <div>
+                    <div>
+                        {errors.email && <p>{errors.email}</p>}
+                        <input type='email' name='email' placeholder='Ingresa tu mail' value={userData.email} onChange={handleChange}></input>
+                        <label htmlFor='email'>Email</label>
+                    </div>
+                    <div>
+                        {errors.password && <p>{errors.password}</p>}
+                        <input type='password' name='password' placeholder='Ingresa tu contraseña' value={userData.password} onChange={handleChange}></input>
+                        <label htmlFor='password'>Contraseña</label>
+                    </div>
+                    <button type='submit' disabled={errors.email || errors.password}>Enviar</button>
+                </div>
+            </form>
+        </div>
     )
 };
 

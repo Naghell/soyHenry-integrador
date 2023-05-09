@@ -11,7 +11,7 @@ import NotFound from "./components/NotFound/NotFound.jsx";
 import Favorites from "./components/Favorites/Favorites.jsx";
 
 const EMAIL = "admin@admin.com";
-const PASSWORD = "administrador";
+const PASSWORD = "admin123";
 
 function App() {
    const location = useLocation();
