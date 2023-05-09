@@ -15,6 +15,9 @@ function Nav({onSearch, logout}) {
         <button onClick={logout}>
           <Link to='/about'>Logout</Link>
         </button>
+        <button>
+          <Link to='/favorites'>Favs</Link>
+        </button>
       </section>
       <section>
         <SearchBar onSearch={onSearch}/>

@@ -8,6 +8,7 @@ import Detail from "./components/Detail/Detail.jsx";
 import Cards from "./components/Cards/Cards.jsx";
 import Nav from "./components/Nav/Nav.jsx";
 import NotFound from "./components/NotFound/NotFound.jsx";
+import Favorites from "./components/Favorites/Favorites.jsx";
 
 const EMAIL = "admin@admin.com";
 const PASSWORD = "administrador";
@@ -63,6 +64,7 @@ function App() {
         <Route path="/home" element={<Cards characters={characters} onClose={onClose} />} />
         <Route path="/about" element={<About />} />
         <Route path="/detail/:id" element={<Detail />} />
+        <Route path="/favorites" element={<Favorites />} />
       </Routes>
     </div>
   );
