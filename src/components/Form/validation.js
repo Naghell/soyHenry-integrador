@@ -1,5 +1,3 @@
-import errors from './Form.jsx';
-
 const validate = (userData, setErrors) => {
     const newErrors = {};
 
