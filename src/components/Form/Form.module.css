@@ -33,7 +33,7 @@ form h1 {
 
 form div {
     color: #97ce4c;
-    margin: 0 auto;
+    margin: 15px auto 0;
     height: fit-content;
 }
 
@@ -56,7 +56,7 @@ form input {
     outline: none;
     background: none;
     border: none;
-    box-shadow: 0 0 5px #97ce4c inset;
+    box-shadow: 0 0 5px #97ce4c, 0 0 2px #97ce4c inset;
     border-radius: 50px;
     margin: 10px 0;
 }
@@ -82,6 +82,13 @@ form button:hover {
 form button:disabled {
     background-color: silver;
     color: grey;
+}
+
+form button:disabled:hover {
+    background-color: silver;
+    color: grey;
+    transform: translateY(0);
+    cursor: not-allowed;
 }
 
 form p {

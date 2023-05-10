@@ -34,15 +34,15 @@ const Form = ({ login }) => {
                 <div>
                     <div>
                         {errors.email && <p>{errors.email}</p>}
-                        <input type='email' name='email' placeholder='Ingresa tu mail' value={userData.email} onChange={handleChange}></input>
+                        <input type='email' name='email' placeholder='Ingresa tu correo' value={userData.email} onChange={handleChange}></input>
                         <label htmlFor='email'>Email</label>
                     </div>
                     <div>
                         {errors.password && <p>{errors.password}</p>}
-                        <input type='password' name='password' placeholder='Ingresa tu contraseña' value={userData.password} onChange={handleChange}></input>
+                        <input type='password' name='password' placeholder='Ingresa tu clave' value={userData.password} onChange={handleChange}></input>
                         <label htmlFor='password'>Contraseña</label>
                     </div>
-                    <button type='submit' disabled={errors.email || errors.password}>Enviar</button>
+                    <button type='submit' disabled={errors.email || errors.password || !userData.email}>Enviar</button>
                 </div>
             </form>
         </div>

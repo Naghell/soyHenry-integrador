@@ -2,45 +2,6 @@
     position: relative;
     background: white;
     margin: 20px;
-    display: flex;
     height: 250px;
     width: 475px;
-}
-.card:before {
-    content: "";
-    z-index: -1;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: linear-gradient(-45deg, #b124bd 0%, #3ac712 100% );
-    transform: translate3d(0px, 0px, 0) scale(1);
-    filter: blur(20px);
-    opacity: var(0.75);
-    transition: opacity 0.3s;
-    border-radius: inherit;
-}
-
-.card::after {
-    content: "";
-    z-index: -1;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: inherit;
-    border-radius: inherit;
-}
-        
-
-.card button {
-    width: 30px;
-    height: 30px;
-}
-
-.card img {
-    border-radius: 10px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
