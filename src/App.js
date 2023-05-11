@@ -14,7 +14,7 @@ const EMAIL = "admin@admin.com";
 const PASSWORD = "admin123";
 
 function App() {
-   const location = useLocation();
+  const location = useLocation();
   const [characters, setCharacters] = useState([]);
   const [access, setAccess] = useState(false);
 
