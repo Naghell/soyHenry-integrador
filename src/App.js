@@ -36,6 +36,10 @@ function App() {
     !access && navigate("/");
   }, [access]);
 
+  useEffect(() => {
+    document.title = "Rick and Morty API";
+  }, []);
+
   const onClose = (id) => {
     setCharacters(
       characters.filter((char) => {
