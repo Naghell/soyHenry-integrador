@@ -27,17 +27,14 @@ function App() {
   };
 
   const logout = () => {
-   setAccess(false);
-   navigate("/");
+    setAccess(false);
+    navigate("/");
   };
 
   useEffect(() => {
+    document.title = "Rick and Morty API";
     !access && navigate("/");
   }, [access]);
-
-  useEffect(() => {
-    document.title = "Rick and Morty API";
-  }, []);
 
   const onClose = (id) => {
     setCharacters(
@@ -49,24 +46,19 @@ function App() {
 
   const onSearch = (id) => {
     fetch(`http://localhost:3001/rickandmorty/character/${id}`)
-    .then((response) => response.json())
-    .then((data) => {
-          if (data.id) {
+      .then((response) => response.json())
+      .then((data) => {
+        const charExists = characters.some((character) => character.id == data.id);
 
-            const charExists = characters.some((character) => character.id == data.id);
-
-            if (charExists) {
-              window.alert("¡Este personaje ya está en la lista!");
-            } else {
-              setCharacters((oldChars) => [...oldChars, data]);
-            }
-
-          } else {
-            window.alert("¡No hay personajes con este ID!");
-          }
-          
-        });
-  }
+        if (charExists) {
+          window.alert("¡Este personaje ya está en la lista!");
+        } else {
+          setCharacters((oldChars) => [...oldChars, data]);
+        }
+        
+      })
+      .catch((error) => window.alert("¡No hay personajes con este ID!"))
+  };
 
   return (
     <div className="App">
