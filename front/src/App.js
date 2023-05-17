@@ -50,7 +50,7 @@ function App() {
 
   const onSearch = (id) => {
     fetch(`http://localhost:3001/rickandmorty/character/${id}`)
-    .then((response) => response.json())
+    .then((res) => res.json())
     .then((data) => {
           if (data.name) {
             setCharacters((oldChars) => [...oldChars, data]);
