@@ -1,7 +1,6 @@
 import "./App.css";
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
-import axios from "axios";
 import Form from "./components/Form/Form.jsx";
 import About from "./components/About/About.jsx";
 import Detail from "./components/Detail/Detail.jsx";
@@ -16,7 +15,7 @@ const PASSWORD = "admin123";
 function App() {
   const location = useLocation();
   const [characters, setCharacters] = useState([]);
-  const [access, setAccess] = useState(false);
+  const [access, setAccess] = useState(true);
 
   const navigate = useNavigate();
 
@@ -52,11 +51,19 @@ function App() {
     fetch(`http://localhost:3001/rickandmorty/character/${id}`)
     .then((response) => response.json())
     .then((data) => {
-          if (data.name) {
-            setCharacters((oldChars) => [...oldChars, data]);
+          if (data.id) {
+
+            const charExists = characters.some((character) => character.id === data.id)
+            if (charExists) {
+              window.alert("¡Este personaje ya está en la lista!");
+            } else {
+              setCharacters((oldChars) => [...oldChars, data]);
+            }
+
           } else {
             window.alert("¡No hay personajes con este ID!");
           }
+          
         });
   }
 
