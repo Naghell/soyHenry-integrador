@@ -15,7 +15,7 @@ const PASSWORD = "admin123";
 function App() {
   const location = useLocation();
   const [characters, setCharacters] = useState([]);
-  const [access, setAccess] = useState(true);
+  const [access, setAccess] = useState(false);
 
   const navigate = useNavigate();
 
@@ -42,7 +42,7 @@ function App() {
   const onClose = (id) => {
     setCharacters(
       characters.filter((char) => {
-        return char.id !== Number(id);
+        return char.id !== id;
       })
     );
   };
@@ -53,7 +53,8 @@ function App() {
     .then((data) => {
           if (data.id) {
 
-            const charExists = characters.some((character) => character.id === data.id)
+            const charExists = characters.some((character) => character.id == data.id);
+
             if (charExists) {
               window.alert("¡Este personaje ya está en la lista!");
             } else {
