@@ -15,7 +15,7 @@ const PASSWORD = "admin123";
 function App() {
   const location = useLocation();
   const [characters, setCharacters] = useState([]);
-  const [access, setAccess] = useState(false);
+  const [access, setAccess] = useState(true);
 
   const navigate = useNavigate();
 
@@ -48,7 +48,7 @@ function App() {
     fetch(`http://localhost:3001/rickandmorty/character/${id}`)
       .then((response) => response.json())
       .then((data) => {
-        const charExists = characters.some((character) => character.id == data.id);
+        const charExists = characters.some((character) => character.id === data.id);
 
         if (charExists) {
           window.alert("¡Este personaje ya está en la lista!");

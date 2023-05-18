@@ -7,23 +7,19 @@ import { useState, useEffect } from 'react';
 function Card({ id, name, status, species, gender, origin, image, onClose, addFav, removeFav, myFav }) {
    const [isFav, setFav] = useState(false);
 
-   useEffect(() => {
-      myFav.forEach((fav) => {
-         if (fav.id === id) {
-            setFav(true);
-         }
-      });
-   }, [myFav]);
-
    const handleFavorite = () => {
-      if (isFav) {
-         setFav(false);
-         removeFav(id);
+      if (myFav.some((fav) => fav.id === id)) {
+        setFav(!isFav);
+        removeFav(id);
       } else {
-         setFav(true);
-         addFav({ id, name, status, species, gender, origin, image, onClose });
+        setFav(!isFav);
+        addFav({ id, name, status, species, gender, origin, image, onClose });
       }
-   }
+    };
+    
+    useEffect(() => {
+      setFav(myFav.some((fav) => fav.id === id));
+    }, [myFav]);
 
    return (
       <div className={style.card}>
