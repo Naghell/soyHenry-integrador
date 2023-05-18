@@ -1,45 +1,105 @@
 .card {
-    display: flex;
-    flex-wrap: wrap;
+    margin: 35px 25px 0 0;
     width: 300px;
-    height: 500px;
-    margin-right: 25px;
-    position: relative;
+    height: 400px;
+    background-image: linear-gradient(163deg, #00ff2f 0%, #510292 100%);
+    border-radius: 20px;
+    transition: all .3s;
+}
+
+.card:hover {
+    box-shadow: 0px 0px 30px 1px rgba(0, 255, 117, 0.30);
+}
+
+.cardsup {
+    width: 300px;
+    height: 400px;
+    background-color: #1a1a1a;
+    border-radius: 25px;
+    transition: all .3s;
+}
+
+.cardsup:hover {
+    transform: scale(0.98);
+    border-radius: 15px;
 }
 
 .card img {
+    border-radius: 20px 20px 0 0;
     width: 100%;
-    
+    height: 250px;
+    opacity: 0.10;
+    transition: all .3s;
 }
 
-.card button {
-    font-size: 1.5rem;
-    margin-left: 1rem;
-    background-color: transparent;
+.card:hover img{
+    border-radius: 15px 15px 10px 10px;
+    opacity: 1;
+}
+
+.name {
+    color: #00c524;
+    opacity: 0.10;
+    text-decoration: none;
+}
+
+.name h2 {
+    padding-top: 10px;
+}
+
+.card:hover .name {
+    text-shadow: 0 0 5px rgba(0, 255, 117, 0.30);
+    opacity: 1;
+    transition: all .3s;
+}
+
+.card:hover .name h2 {
+    transition: all .3s;
+    padding: 10px;
+    transform: translateY(-100%);
+    background-color: #1a1a1a;
+    border-radius: 15px 15px 0 0;
+}
+
+.description {
+    margin: 0 auto;
+    font-size: 1rem;
+    width: 200px;
+    height: 60px;
+    justify-content: center;
+    text-align: center;
+    color: #a434ff;
+    opacity: 0.1;
+    transition: all .3s;
+}
+
+.card:hover .description {
+    font-size: 1.05rem;
+    opacity: 1;
+    transform: translateY(-50%);
+}
+
+.botones {
+    transition: all .3s;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 10px;
+    transform: translateY(-10px);
+}
+
+.botones button {
+    background: none;
     border: none;
+}
+
+.botones img {
+    width: 50px;
+    height: 50px;
+    background: none;
+    filter: invert(33%) sepia(87%) saturate(3977%) hue-rotate(259deg) brightness(96%) contrast(111%);
     cursor: pointer;
 }
 
-.card button:focus {
-    outline: none;
-}
-
-.card h2 {
-    margin: 0.5rem 0;
-}
-
-.card .info {
-    flex: 1;
-}
-
-.card .info button {
-    font-size: 1.5rem;
-    margin-left: auto;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-}
-
-.card .info button:focus {
-    outline: none;
+.card:hover .botones {
+    transform: translateY(-25px);
 }

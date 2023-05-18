@@ -4,7 +4,7 @@
 }
 
 .searchBar input {
-    background: #656565;
+    background: #9c9c9c;
     width: 250px;
     border: none;
     border-radius: 25px;
@@ -18,7 +18,7 @@
 
 .searchBar input:focus {
     border: none;
-    background: #757575;
+    background: #9c9c9c;
     transition: 0.25s;
 }
 
@@ -27,8 +27,8 @@
     font-weight: bold;
     font-size: 1em;
     color: white;
-    background-color: #97ce4c;
-    box-shadow: 0 0 5px #97ce4c;
+    background-color: #00c524;
+    box-shadow: 0 0 5px #00c524;
     border: none;
     border-radius: 25px;
     width: 85px;

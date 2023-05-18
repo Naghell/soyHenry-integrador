@@ -28,7 +28,7 @@ const Form = ({ login }) => {
 
     return (
         <div className={style.center}>
-            <img src='/login-back.png' alt='Rick y Morty API'></img>
+            <img src='/login-back.png' alt='Rick y Morty API' className={style.form__image}></img>
             <form onSubmit={handleSubmit}>
                 <h1>Iniciar sesión</h1>
                 <div>

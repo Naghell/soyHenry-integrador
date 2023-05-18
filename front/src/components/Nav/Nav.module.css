@@ -4,8 +4,8 @@
     justify-content: space-between;
     padding: 0 150px;
     height: 50px;
-    background-color: #505050;
-    box-shadow: 0 5px 5px #97ce4c;
+    background-color: #666666;
+    box-shadow: 0 10px 8px #00c524;
 }
 
 .nav__links {
@@ -39,8 +39,8 @@
     font-weight: bold;
     font-size: 1em;
     color: white;
-    background-color: #97ce4c;
-    box-shadow: 0 0 5px #97ce4c;
+    background-color: #00c524;
+    box-shadow: 0 0 5px #00c524;
     width: 75px;
     height: 35px;
     border: none;
