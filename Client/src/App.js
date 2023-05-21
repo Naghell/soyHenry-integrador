@@ -9,9 +9,6 @@ import Nav from "./components/Nav/Nav.jsx";
 import NotFound from "./components/NotFound/NotFound.jsx";
 import Favorites from "./components/Favorites/Favorites.jsx";
 
-const EMAIL = "admin@admin.com";
-const PASSWORD = "admin123";
-
 function App() {
   const location = useLocation();
   const [characters, setCharacters] = useState([]);
@@ -20,11 +17,16 @@ function App() {
   const navigate = useNavigate();
 
   const login = (userData) => {
-    if (userData.email === EMAIL && userData.password === PASSWORD) {
-      setAccess(true);
-      navigate("/home");
-    }
-  };
+   const { email, password } = userData;
+   const URL = `http://localhost:3001/rickandmorty/login/?email=${email}&password=${password}`;
+   fetch(URL)
+      .then((response) => response.json())
+      .then((data) => {
+         const { access } = data;
+         setAccess(data);
+         access && navigate('/home');
+      });
+};
 
   const logout = () => {
     setAccess(false);
