@@ -1,11 +1,12 @@
-import { connect, useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Card from '../Card/Card';
 import style from './Favorites.module.css';
 import { filterCards, orderCards } from '../../redux/actions';
 import { useState } from 'react';
 
-const Favorites = ({ myFav }) => {
+const Favorites = () => {
     const dispatch = useDispatch();
+    const myFav = useSelector(state => state.myFav)
 
     const handleOrder = (event) => {
         dispatch(orderCards(event.target.value));
@@ -19,7 +20,7 @@ const Favorites = ({ myFav }) => {
     const [aux, setAux] = useState(false);
 
     return (
-        <div>
+        <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center'}}>
             <select onChange={handleOrder}>
                 <option value="A">Ascendente</option>
                 <option value="D">Descendente</option>
@@ -50,13 +51,4 @@ const Favorites = ({ myFav }) => {
     )
 }
 
-const mapStateToProps = (state) => {
-    return {
-        myFav: state.myFav
-    }
-}
-
-export default connect(
-    mapStateToProps,
-    null
-)(Favorites)
+export default Favorites;

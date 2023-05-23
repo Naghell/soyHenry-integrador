@@ -10,19 +10,19 @@ import Nav from "./components/Nav/Nav.jsx";
 import NotFound from "./components/NotFound/NotFound.jsx";
 import Favorites from "./components/Favorites/Favorites.jsx";
 
-const URL = `http://localhost:3001/rickandmorty/login`;
+const URL = `http://localhost:3001/rickandmorty`;
 
 function App() {
   const location = useLocation();
   const [characters, setCharacters] = useState([]);
-  const [access, setAccess] = useState(false);
+  const [access, setAccess] = useState(true);
 
   const navigate = useNavigate();
 
   const login = async (userData) => {
     try {
       const { email, password } = userData;
-      const { data } = await axios(URL + `?email=${email}&password=${password}`);
+      const { data } = await axios(URL + `/login/?email=${email}&password=${password}`);
       const { access } = data;
 
       setAccess(access);
@@ -52,7 +52,7 @@ function App() {
 
   const onSearch = async (id) => {
     try {
-      const { data } = await axios(`http://localhost:3001/rickandmorty/character/${id}`)
+      const { data } = await axios(URL + `/character/${id}`)
       const charExists = characters.some((character) => character.id === data.id);
 
       if (charExists) {
