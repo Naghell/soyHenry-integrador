@@ -1,6 +1,7 @@
 import "./App.css";
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
+import axios from "axios";
 import Form from "./components/Form/Form.jsx";
 import About from "./components/About/About.jsx";
 import Detail from "./components/Detail/Detail.jsx";
@@ -9,6 +10,8 @@ import Nav from "./components/Nav/Nav.jsx";
 import NotFound from "./components/NotFound/NotFound.jsx";
 import Favorites from "./components/Favorites/Favorites.jsx";
 
+const URL = `http://localhost:3001/rickandmorty/login`;
+
 function App() {
   const location = useLocation();
   const [characters, setCharacters] = useState([]);
@@ -16,17 +19,18 @@ function App() {
 
   const navigate = useNavigate();
 
-  const login = (userData) => {
-   const { email, password } = userData;
-   const URL = `http://localhost:3001/rickandmorty/login/?email=${email}&password=${password}`;
-   fetch(URL)
-      .then((response) => response.json())
-      .then((data) => {
-         const { access } = data;
-         setAccess(data);
-         access && navigate('/home');
-      });
-};
+  const login = async (userData) => {
+    try {
+      const { email, password } = userData;
+      const { data } = await axios(URL + `?email=${email}&password=${password}`);
+      const { access } = data;
+
+      setAccess(access);
+      access && navigate("/home");
+    } catch (error) {
+      console.log(error.message)
+    }
+  };
 
   const logout = () => {
     setAccess(false);
@@ -46,20 +50,20 @@ function App() {
     );
   };
 
-  const onSearch = (id) => {
-    fetch(`http://localhost:3001/rickandmorty/character/${id}`)
-      .then((response) => response.json())
-      .then((data) => {
-        const charExists = characters.some((character) => character.id === data.id);
+  const onSearch = async (id) => {
+    try {
+      const { data } = await axios(`http://localhost:3001/rickandmorty/character/${id}`)
+      const charExists = characters.some((character) => character.id === data.id);
 
-        if (charExists) {
-          window.alert("¡Este personaje ya está en la lista!");
-        } else if (data.name) {
-          setCharacters((oldChars) => [...oldChars, data]);
-        }
-        
-      })
-      .catch((error) => window.alert("¡No hay personajes con este ID!"))
+      if (charExists) {
+        window.alert("¡Este personaje ya está en la lista!");
+      } else if (data.name) {
+        setCharacters((oldChars) => [...oldChars, data]);
+      }
+
+    } catch (error) {
+      window.alert("¡No hay personajes con este ID!");
+    }
   };
 
   return (
