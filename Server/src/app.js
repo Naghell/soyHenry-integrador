@@ -1,6 +1,5 @@
 const express = require('express');
 const server = express();
-const PORT = 3001;
 const router = require('./routes/index');
 const morgan = require('morgan');
 
@@ -23,6 +22,4 @@ server.use((req, res, next) => {
 
 server.use('/rickandmorty', router);
 
-server.listen(PORT, () => {
-    console.log('Server listening on port ' + PORT);
-});
+module.exports = server;
