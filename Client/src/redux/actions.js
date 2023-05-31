@@ -29,7 +29,7 @@ export const removeFav = (id) => {
 
          return dispatch({
             type: REMOVE_FAV,
-            payload: data
+            payload: id
          });      
 
       } catch (error) {

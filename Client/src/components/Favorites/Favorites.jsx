@@ -32,7 +32,7 @@ const Favorites = () => {
                 <option value="unknown">Unknown</option>
                 <option value="All">Todos</option>
             </select>
-            {myFav.map(fav => {
+            {Array.isArray(myFav) && myFav.map(fav => {
                 return (
                     <Card
                         key={fav.id}
