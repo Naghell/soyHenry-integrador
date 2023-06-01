@@ -14,6 +14,7 @@ const reducer = (state = initialState, action) => {
             return {
             ...state,
             myFav: updatedFavorites,
+            allCharacters: updatedFavorites
             };
         }
         case FILTER:
@@ -21,7 +22,7 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 myFav:
-                    action.payload === 'All' ? [...state.myFav] : allCharactersFiltered
+                    action.payload === 'All' ? [...state.allCharacters] : allCharactersFiltered
             }
         case ORDER:
             const allCharactersOrdered = [...state.allCharacters]
